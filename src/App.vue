@@ -2,12 +2,11 @@
   <div id="app">
     <mu-appbar title="Title">
     </mu-appbar>
-    <mu-text-field label="名字" labelFloat v-model="username" /><br/>
-    <mu-text-field label="密码" type="password" labelFloat v-model="password"/><br/>
-    <mu-raised-button label="注册"  fullWidth @click="reg" primary />
-    <!--<input placeholder="username" v-model="username"></br></br>
-    <input placeholder="password" v-model="password"></br></br>
-    <button v-on:click="login">submit</button>-->
+    <div class="content">
+      <mu-text-field label="名字" labelFloat v-model="username" /><br/>
+      <mu-text-field label="密码" type="password" labelFloat v-model="password"/><br/>
+      <mu-raised-button label="注册" fullWidth @click="reg" primary />
+    </div>
   </div>
 </template>
 
@@ -45,5 +44,9 @@ export default {
 <style>
 #app {
   width:100%;
+}
+.content {
+  width:80%;
+  margin:20px auto;
 }
 </style>
