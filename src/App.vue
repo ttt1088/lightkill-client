@@ -58,7 +58,7 @@ export default {
   },
   created() {
     const that = this;
-    this.socket = io.connect('http://localhost:8081');
+    this.socket = io.connect('http://192.168.3.104:8081');
     this.socket.on('welcome', function(obj){
       console.log(obj);
       that.socket.emit('my other event', { hello: 'world from client' }, function(data) {
@@ -69,12 +69,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus" rel="stylesheet/stylus">
 #app {
   width:100%;
 }
-.content {
+.mu-appbar
+  text-align: center
+.content 
   width:80%;
   margin:20px auto;
-}
+  .mu-text-field
+    width:100%
 </style>
