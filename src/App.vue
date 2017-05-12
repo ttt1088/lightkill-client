@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import io from 'socket.io-client'
 export default {
   name: 'app',
   data() {
@@ -19,7 +19,9 @@ export default {
     
   },
   created() {
-    
+    this.socket = io.connect('http://localhost:8081');
+    this.$store.commit('initsocket', this.socket);
+    this.$router.replace('reg');
   }
 }
 </script>

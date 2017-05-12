@@ -1,12 +1,12 @@
 <template>
-  <div class="login">
+  <div class="reg">
     <mu-appbar title="LightKill">
     </mu-appbar>
     <div class="content">
       <mu-text-field label="名字" labelFloat v-model="username" /><br/>
       <mu-text-field label="密码" type="password" labelFloat v-model="password"/><br/>
-      <mu-flat-button label="还没有账号？点击注册" @click="gotoReg"/><br/><br/>
-      <mu-raised-button label="登录" fullWidth @click="reg" primary />
+      <mu-flat-button label="已有账号？点击登录" @click="gotoLogin"/><br/><br/>
+      <mu-raised-button label="注册" fullWidth @click="reg" primary />
     </div>
     <mu-dialog :open="dialog" title="提示">
       {{ dialogMessage }}
@@ -32,7 +32,7 @@ export default {
   methods: {
     reg: function(){
       const that = this;
-      this.socket.emit('login', { name: this.username, password: this.password }, function(data) {
+      this.socket.emit('reg', { name: this.username, password: this.password }, function(data) {
         console.log(data);
         if(data.errno == 0){
           that.dialog = true;
@@ -55,8 +55,8 @@ export default {
     dialogClose: function(){
       this.dialog = false;
     },
-    gotoReg: function(){
-      this.$router.replace('reg');
+    gotoLogin: function(){
+      this.$router.replace('login');
     }
   },
   created() {
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.login
+.reg
         position: absolute
         left:0
         right:0
