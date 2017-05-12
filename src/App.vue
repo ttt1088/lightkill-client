@@ -20,6 +20,9 @@ export default {
   },
   created() {
     this.socket = io.connect('http://localhost:8081');
+    this.socket.on('welcome', function(obj){
+      console.log(obj);
+    })
     this.$store.commit('initsocket', this.socket);
     this.$router.replace('reg');
   }

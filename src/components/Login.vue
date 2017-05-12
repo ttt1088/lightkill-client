@@ -35,20 +35,25 @@ export default {
       this.socket.emit('login', { name: this.username, password: this.password }, function(data) {
         console.log(data);
         if(data.errno == 0){
-          that.dialog = true;
-          that.dialogMessage = '注册成功';
+          //that.dialog = true;
+          //that.dialogMessage = '登录成功';
+          that.$router.replace('main');
         }
         else if(data.errno == 1){
           that.dialog = true;
-          that.dialogMessage = '注册失败：未知错误';
-        }
-        else if(data.errno == 2){
-          that.dialog = true;
-          that.dialogMessage = '注册失败：用户名已存在';
+          that.dialogMessage = '登录失败：未知错误';
         }
         else if(data.errno == 3){
           that.dialog = true;
-          that.dialogMessage = '注册失败：用户名或密码格式错误';
+          that.dialogMessage = '登录失败：用户名或密码格式错误';
+        }
+        else if(data.errno == 4){
+          that.dialog = true;
+          that.dialogMessage = '登录失败：用户名不存在';
+        }
+        else if(data.errno == 5){
+          that.dialog = true;
+          that.dialogMessage = '登录失败：密码错误';
         }
       });
     },
@@ -60,15 +65,7 @@ export default {
     }
   },
   created() {
-    const that = this;
-    //this.socket = io.connect('http://localhost:8081');
     this.socket = this.$store.getters.getsocket;
-    this.socket.on('welcome', function(obj){
-      console.log(obj);
-      that.socket.emit('my other event', { hello: 'world from client' }, function(data) {
-        console.log(data);
-      });
-    })
   }
 }
 </script>

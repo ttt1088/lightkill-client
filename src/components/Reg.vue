@@ -60,15 +60,7 @@ export default {
     }
   },
   created() {
-    const that = this;
-    //this.socket = io.connect('http://localhost:8081');
     this.socket = this.$store.getters.getsocket;
-    this.socket.on('welcome', function(obj){
-      console.log(obj);
-      that.socket.emit('my other event', { hello: 'world from client' }, function(data) {
-        console.log(data);
-      });
-    })
   }
 }
 </script>
