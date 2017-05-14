@@ -4,9 +4,9 @@
     <div class="bottom">
       <mu-paper>
         <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
-          <mu-bottom-nav-item value="lobby" title="大厅" icon="home"/>
-          <mu-bottom-nav-item value="watch" title="观战" icon="videocam"/>
-          <mu-bottom-nav-item value="setting" title="我的" icon="face"/>
+          <mu-bottom-nav-item value="lobby" title="大厅" icon="home" to="lobby"/>
+          <mu-bottom-nav-item value="watch" title="观战" icon="videocam" to="watch"/>
+          <mu-bottom-nav-item value="setting" title="我的" icon="face" to="setting"/>
         </mu-bottom-nav>
       </mu-paper>
     </div>

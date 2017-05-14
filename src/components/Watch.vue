@@ -1,8 +1,6 @@
 <template>
-  <div class="lobby">
-    <div class="searchgame">
-      <mu-raised-button label="开始游戏" primary fullWidth/>
-    </div>
+  <div class="watch">
+    观战
   </div>
 </template>
 
@@ -28,7 +26,6 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.searchgame
-    width:80%
-    margin: 0 auto;
+.watch
+  text-align: center;
 </style>
