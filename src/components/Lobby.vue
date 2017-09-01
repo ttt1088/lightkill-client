@@ -28,7 +28,9 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.lobby
+  height: 100%
 .searchgame
-    width:80%
+    width:80%;
     margin: 0 auto;
 </style>

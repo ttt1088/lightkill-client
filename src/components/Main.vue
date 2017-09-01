@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <router-view></router-view>
+    <div class="main-content">
+      <router-view></router-view>
+    </div>
     <div class="bottom">
       <mu-paper>
         <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
@@ -40,6 +42,14 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+.main
+  height:100%
+  width:100%
+  position:absolute
+.main-content
+  width:100%
+  height:100%
+  position:fiexd
 .bottom
   position:fixed
   bottom:0
